@@ -1,0 +1,22 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.lanou.domain.Department">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <property name="dname"/>
+
+        <!-- 定义1对多单项关联关系 -->
+        <set name="posts"
+             inverse="false"
+             lazy="false"
+             cascade="all">
+
+            <key column="department_id"/>
+
+            <one-to-many class="com.lanou.domain.Post"/>
+        </set>
+    </class>
+</hibernate-mapping>
