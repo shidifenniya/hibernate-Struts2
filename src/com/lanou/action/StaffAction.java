@@ -75,7 +75,7 @@ public class StaffAction extends ActionSupport {
 
         sb.append("from Staff where 1=1");
 
-        if(!departId.equals("-1")){
+        if(!departId.equals("-1") && !departId.isEmpty()){
 
             params.put("department_id",Integer.parseInt(departId));
 
@@ -83,7 +83,7 @@ public class StaffAction extends ActionSupport {
 
         }
 
-        if(!postId.equals("-1")){
+        if(!postId.equals("-1") && !postId.isEmpty()){
 
             params.put("post_id",Integer.parseInt(postId));
 

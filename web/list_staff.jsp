@@ -91,6 +91,30 @@
 
     });
 
+    window.onload = function () {
+
+        $.post("queryStaff",{
+
+            departId:$("#department").val(),
+
+            postId:$("#post").val()
+
+        },function (date) {
+
+            var _html = "";
+
+            for (var i = 0; i < date.length; i++) {
+
+                _html += "<tr><td>"+date[i].sname+"</td><td>"+date[i].department.dname+"</td><td>"+date[i].post.pname+"</td></tr>";
+
+            }
+
+            $("#list").append(_html);
+
+        })
+
+    };
+
     $("#department,#post").change(function () {
 
         $("#list").empty();
